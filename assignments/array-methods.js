@@ -89,6 +89,16 @@ runners.map((el) => el.shirt_size)
 
 console.log(shirtSizes);
 
+// Using set instead of reduce
+// let shirtSizes = 
+// Array.from(new Set(runners.map((el) => el.shirt_size)))
+// .map(function(el) {
+//   el = {[el]: runners.filter((element) => element.shirt_size === el).length};
+//   return el;
+// });
+
+// console.log(shirtSizes);
+
 // Longer method - in two steps, first reduce into unique shirt sizes, then map into array of objects
 // let shirtSizes = 
 // runners.map((el) => el.shirt_size)
