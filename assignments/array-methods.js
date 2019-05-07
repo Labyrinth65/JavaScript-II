@@ -83,20 +83,30 @@ let shirtSizes =
 runners.map((el) => el.shirt_size)
 .reduce(function(a,b){
     if(a.indexOf(b)<0) 
-    a.push(b); 
+    a[b] = runners.filter((element) => element.shirt_size === b).length; 
     return a;
-}
-,[]);
+},[]);
 
-let shirtsBySize = [];
-shirtSizes.map(function(el) {
-    let obj = {};
-    obj[el] = runners.filter((element) => element.shirt_size === el).length;
-    shirtsBySize.push(obj);
-    return shirtsBySize;
-});
+console.log(shirtSizes);
 
-console.log(shirtsBySize);
+// Longer method - in two steps, first reduce into unique shirt sizes, then map into array of objects
+// let shirtSizes = 
+// runners.map((el) => el.shirt_size)
+// .reduce(function(a,b){
+//     if(a.indexOf(b)<0) 
+//     a.push(b); 
+//     return a;
+// }
+// ,[]);
+
+// let shirtsBySize = [];
+// shirtSizes.map(function(el) {
+//     let obj = {};
+//     obj[el] = runners.filter((element) => element.shirt_size === el).length;
+//     shirtsBySize.push(obj);
+// });
+
+// console.log(shirtsBySize);
 
 // Problem 2, give all unique companies in an array
 let companyList = 
@@ -109,4 +119,6 @@ runners.map((el) => el.company_name)
 
 console.log(companyList);
 
-// Problem 3
+// Problem 3, list all donators over $150
+let donate150 = runners.filter((el) => el.donation > 150).map((el) => (`${el.first_name} ${el.last_name}`));
+console.log(donate150);
